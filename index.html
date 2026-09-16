@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAK Veículos - Os Melhores Preços em Carros de Repasse</title>
-    <meta name="description" content="RAK Veículos - Encontre o carro dos seus sonhos com os melhores preços. Evoque, Renegade, Civic e muito mais!">
+    <title>Veiculos Repasse - Os Melhores Precos em Carros de Repasse</title>
+    <meta name="description" content="Veiculos Repasse - Encontre o carro dos seus sonhos com os melhores precos. Evoque, Renegade, Civic e muito mais!">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -24,6 +24,7 @@
             --light-gray: #2A2A2A;
             --white: #FFFFFF;
             --text: #CCCCCC;
+            --gold: #FFD700;
         }
 
         body {
@@ -202,6 +203,10 @@
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .vehicle-card:hover {
@@ -311,6 +316,96 @@
 
         .vehicle-cta:hover {
             background: var(--red-dark);
+        }
+
+        /* SCROLLING BANNER */
+        .scroll-banner {
+            background: var(--red);
+            padding: 1rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .scroll-banner::before,
+        .scroll-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .scroll-banner::before {
+            left: 0;
+            background: linear-gradient(to right, var(--red), transparent);
+        }
+
+        .scroll-banner::after {
+            right: 0;
+            background: linear-gradient(to left, var(--red), transparent);
+        }
+
+        .scroll-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+
+        .scroll-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .scroll-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem 2rem;
+            flex-shrink: 0;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .scroll-item img {
+            width: 80px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .scroll-item .scroll-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scroll-item .scroll-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .scroll-item .scroll-price {
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+
+        .scroll-item .scroll-old {
+            text-decoration: line-through;
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .scroll-divider {
+            color: var(--white);
+            font-size: 1.5rem;
+            padding: 0 1rem;
+            opacity: 0.5;
         }
 
         /* APP SECTION */
@@ -497,6 +592,187 @@
             font-size: 0.85rem;
         }
 
+        /* TESTIMONIALS SECTION */
+        .testimonials-section {
+            padding: 6rem 2rem;
+            background: var(--dark);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--gray);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 5rem;
+            color: var(--red);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .testimonial-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .testimonial-car {
+            color: var(--text);
+            font-size: 0.85rem;
+        }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .whatsapp-tooltip {
+            background: var(--white);
+            color: var(--black);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: tooltipPulse 2s infinite;
+        }
+
+        @keyframes tooltipPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .whatsapp-btn {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        /* CTA WHATSAPP SECTION */
+        .cta-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: #25D366;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        .cta-whatsapp:hover {
+            transform: translateY(-3px);
+        }
+
+        .cta-whatsapp svg {
+            width: 24px;
+            height: 24px;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .header-container {
@@ -525,6 +801,19 @@
             .app-buttons {
                 justify-content: center;
             }
+
+            .scroll-item img {
+                width: 60px;
+                height: 40px;
+            }
+
+            .scroll-item .scroll-name {
+                font-size: 0.8rem;
+            }
+
+            .scroll-item .scroll-price {
+                font-size: 0.95rem;
+            }
         }
 
         /* ANIMACOES */
@@ -544,9 +833,10 @@
     <!-- HEADER -->
     <header>
         <div class="header-container">
-            <div class="logo">RAK <span>VEICULOS</span></div>
+            <div class="logo">VEICULOS <span>REPASSE</span></div>
             <nav>
                 <a href="#veiculos">Veiculos</a>
+                <a href="#depoimentos">Depoimentos</a>
                 <a href="#app">App</a>
                 <a href="#contato">Contato</a>
             </nav>
@@ -562,7 +852,15 @@
                 <span>Com os Melhores Precos</span>
             </h1>
             <p>Evoque por R$ 56.000 | Renegade por R$ 60.000 | Civic por R$ 86.000. Aproveite nossas ofertas exclusivas!</p>
-            <a href="#veiculos" class="cta-button">Ver Ofertas</a>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#veiculos" class="cta-button">Ver Ofertas</a>
+                <a href="https://wa.me/5511999999999?text=Ola! Vim pelo site e gostaria de receber uma cotacao." class="cta-button" style="background: #25D366; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px; margin-right: 5px; vertical-align: middle;">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    Cotacao pelo WhatsApp
+                </a>
+            </div>
         </div>
     </section>
 
@@ -575,7 +873,7 @@
 
         <div class="vehicles-grid">
             <!-- EVOQUE -->
-            <div class="vehicle-card fade-in">
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="vehicle-card fade-in">
                 <div class="vehicle-image">
                     <span class="vehicle-tag">Mais Vendido</span>
                     <img src="https://images.pexels.com/photos/9427659/pexels-photo-9427659.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Range Rover Evoque 2020" loading="lazy">
@@ -587,12 +885,12 @@
                         <span class="old-price">R$ 189.900</span>
                         <span class="new-price"><small>R$</small> 56.000</span>
                     </div>
-                    <a href="#app" class="vehicle-cta">Tenho Interesse</a>
+                    <span class="vehicle-cta">Baixar App e Ver Mais</span>
                 </div>
-            </div>
+            </a>
 
             <!-- RENEGADE -->
-            <div class="vehicle-card fade-in">
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="vehicle-card fade-in">
                 <div class="vehicle-image">
                     <span class="vehicle-tag">Oferta Especial</span>
                     <img src="https://images.pexels.com/photos/10974328/pexels-photo-10974328.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Jeep Renegade 2021" loading="lazy">
@@ -604,12 +902,12 @@
                         <span class="old-price">R$ 145.000</span>
                         <span class="new-price"><small>R$</small> 60.000</span>
                     </div>
-                    <a href="#app" class="vehicle-cta">Tenho Interesse</a>
+                    <span class="vehicle-cta">Baixar App e Ver Mais</span>
                 </div>
-            </div>
+            </a>
 
             <!-- CIVIC -->
-            <div class="vehicle-card fade-in">
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="vehicle-card fade-in">
                 <div class="vehicle-image">
                     <span class="vehicle-tag">Recomendado</span>
                     <img src="https://images.pexels.com/photos/6794815/pexels-photo-6794815.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Honda Civic Touring 2022" loading="lazy">
@@ -621,11 +919,138 @@
                         <span class="old-price">R$ 198.000</span>
                         <span class="new-price"><small>R$</small> 86.000</span>
                     </div>
-                    <a href="#app" class="vehicle-cta">Tenho Interesse</a>
+                    <span class="vehicle-cta">Baixar App e Ver Mais</span>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
+
+    <!-- SCROLLING BANNER -->
+    <div class="scroll-banner">
+        <div class="scroll-track">
+            <!-- Grupo 1 -->
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/9427659/pexels-photo-9427659.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Evoque">
+                <div class="scroll-info">
+                    <span class="scroll-name">Evoque 2021</span>
+                    <span class="scroll-old">R$ 189.900</span>
+                    <span class="scroll-price">R$ 56.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/10974328/pexels-photo-10974328.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Renegade">
+                <div class="scroll-info">
+                    <span class="scroll-name">Renegade 2022</span>
+                    <span class="scroll-old">R$ 145.000</span>
+                    <span class="scroll-price">R$ 60.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/6794815/pexels-photo-6794815.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Civic">
+                <div class="scroll-info">
+                    <span class="scroll-name">Civic Touring 2023</span>
+                    <span class="scroll-old">R$ 198.000</span>
+                    <span class="scroll-price">R$ 86.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Creta">
+                <div class="scroll-info">
+                    <span class="scroll-name">Hyundai Creta</span>
+                    <span class="scroll-old">R$ 130.000</span>
+                    <span class="scroll-price">R$ 72.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/892522/pexels-photo-892522.jpeg?auto=compress&cs=tinysrgb&w=400" alt="T-Cross">
+                <div class="scroll-info">
+                    <span class="scroll-name">VW T-Cross</span>
+                    <span class="scroll-old">R$ 140.000</span>
+                    <span class="scroll-price">R$ 68.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/1006329/pexels-photo-1006329.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Corolla">
+                <div class="scroll-info">
+                    <span class="scroll-name">Toyota Corolla</span>
+                    <span class="scroll-old">R$ 155.000</span>
+                    <span class="scroll-price">R$ 78.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <!-- Grupo 2 (repeticao para efeito continuo) -->
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/9427659/pexels-photo-9427659.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Evoque">
+                <div class="scroll-info">
+                    <span class="scroll-name">Evoque 2021</span>
+                    <span class="scroll-old">R$ 189.900</span>
+                    <span class="scroll-price">R$ 56.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/10974328/pexels-photo-10974328.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Renegade">
+                <div class="scroll-info">
+                    <span class="scroll-name">Renegade 2022</span>
+                    <span class="scroll-old">R$ 145.000</span>
+                    <span class="scroll-price">R$ 60.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/6794815/pexels-photo-6794815.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Civic">
+                <div class="scroll-info">
+                    <span class="scroll-name">Civic Touring 2023</span>
+                    <span class="scroll-old">R$ 198.000</span>
+                    <span class="scroll-price">R$ 86.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Creta">
+                <div class="scroll-info">
+                    <span class="scroll-name">Hyundai Creta</span>
+                    <span class="scroll-old">R$ 130.000</span>
+                    <span class="scroll-price">R$ 72.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/892522/pexels-photo-892522.jpeg?auto=compress&cs=tinysrgb&w=400" alt="T-Cross">
+                <div class="scroll-info">
+                    <span class="scroll-name">VW T-Cross</span>
+                    <span class="scroll-old">R$ 140.000</span>
+                    <span class="scroll-price">R$ 68.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+
+            <a href="https://github.com/sexasasd/rak-veiculos/releases/download/v1.0/app.apk" class="scroll-item">
+                <img src="https://images.pexels.com/photos/1006329/pexels-photo-1006329.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Corolla">
+                <div class="scroll-info">
+                    <span class="scroll-name">Toyota Corolla</span>
+                    <span class="scroll-old">R$ 155.000</span>
+                    <span class="scroll-price">R$ 78.000</span>
+                </div>
+            </a>
+            <span class="scroll-divider">|</span>
+        </div>
+    </div>
 
     <!-- APP SECTION -->
     <section class="app-section" id="app">
@@ -692,14 +1117,74 @@
         </div>
     </section>
 
+    <!-- CTA WHATSAPP -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Fale Conosco pelo WhatsApp</h2>
+            <p>Tire suas duvidas, solicite cotacoes e receiving atendimento personalizado. Estamos prontos para te ajudar!</p>
+            <a href="https://wa.me/5511999999999?text=Ola! Vim pelo site e gostaria de receber uma cotacao." class="cta-whatsapp" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Chamar no WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="depoimentos">
+        <div class="section-title fade-in">
+            <h2>O Que Nossos <span>Clientes</span> Dizem</h2>
+            <p>Historias reais de quem ja comprou com a gente</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Comprei um Evoque com eles e o processo foi todo tranquilo. O carro chegou exatamente como combinado, sem surpresas. Recomendo demais!"</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MS</div>
+                    <div class="testimonial-info">
+                        <span class="testimonial-name">Marcos Silva</span>
+                        <span class="testimonial-car">Range Rover Evoque - Comprado em 2024</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Atendimento excelente! Me ajudaram a escolher o melhor financiamento e o Renegade veio impecavel. Estou muito satisfeito com a compra."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AS</div>
+                    <div class="testimonial-info">
+                        <span class="testimonial-name">Ana Santos</span>
+                        <span class="testimonial-car">Jeep Renegade - Comprado em 2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card fade-in">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"O melhor preco que encontrei na regiao! O Civic Touring estava pratico novo e o vendedor foi muito atencioso. Ja indiquei pra varios amigos."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">RL</div>
+                    <div class="testimonial-info">
+                        <span class="testimonial-name">Ricardo Lima</span>
+                        <span class="testimonial-car">Honda Civic Touring - Comprado em 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer id="contato">
         <div class="footer-content">
-            <div class="footer-logo">RAK <span>VEICULOS</span></div>
+            <div class="footer-logo">VEICULOS <span>REPASSE</span></div>
             <div class="footer-contact">
                 <p>Endereco: Rua Exemplo, 123 - Centro</p>
                 <p>WhatsApp: (11) 99999-9999</p>
-                <p>contato@rakveiculos.com.br</p>
+                <p>contato@veiculosrepasse.com.br</p>
             </div>
             <div class="social-links">
                 <a href="#" aria-label="Instagram">
@@ -718,9 +1203,19 @@
                     </svg>
                 </a>
             </div>
-            <p class="copyright">&copy; 2026 RAK Veiculos. Todos os direitos reservados.</p>
+            <p class="copyright">&copy; 2026 Veiculos Repasse. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <div class="whatsapp-float">
+        <div class="whatsapp-tooltip">Fale conosco!</div>
+        <a href="https://wa.me/5511999999999?text=Ola! Vim pelo site e gostaria de receber uma cotacao." class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </a>
+    </div>
 
     <script>
         // Smooth scroll
